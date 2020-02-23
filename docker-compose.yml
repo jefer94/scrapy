@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  scrapy:
+    build: .
+    environment:
+      - DEV=true
+    volumes:
+      - ./:/usr/src
+      #- /usr/src/node_modules
+      - node_modules:/usr/src/node_modules
+      - yarn-cache:/usr/local/share/.cache/yarn/v4
+      - npm-cache:/root/.npm
+
+volumes:
+  node_modules:
+    external: false
+  yarn-cache:
+    external: false
+  npm-cache:
+    external: false
